@@ -1,0 +1,47 @@
+.details {
+    width: 100%;
+    font-style: normal;
+    font-size: 16px;
+    display: flex;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    gap: 30px;
+
+}
+
+.details img {
+    width: 50%;
+}
+
+.title {
+    display: flex;
+    vertical-align: middle;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.author {
+    font-weight: lighter;
+    float: right;
+    font-style: italic;
+}
+
+.title a {
+    color: rgb(0, 153, 0);
+    font-style: italic;
+}
+
+.action {
+    display: flex;
+    vertical-align: middle;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+}
+.action a{
+    color: rgb(0, 153, 0);
+    font-style: italic;
+}

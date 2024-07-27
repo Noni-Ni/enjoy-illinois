@@ -3,6 +3,8 @@ import AllPosts from "./components/all-posts/AllPosts"
 import Details from "./components/details/Details"
 import Header from "./components/header/Header"
 import HomeSection from "./components/homeSection/HomeSection"
+import Login from "./components/login/Login"
+import Register from "./components/register/Register"
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
         <AllPosts />
         <Details/>
         <AddPost/>
+        <Login/>
+        <Register/>
       </main>
     </>
   )

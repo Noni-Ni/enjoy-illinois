@@ -4,8 +4,7 @@ import { post } from "./requester";
 const BASE_URL = 'http://localhost:3030/users';
 
 export async function login(email, password){
-    console.log('hi auth')
-    console.log(email,password)
+    
     const authData = await post(`${BASE_URL}/login`, {email, password});
     
 

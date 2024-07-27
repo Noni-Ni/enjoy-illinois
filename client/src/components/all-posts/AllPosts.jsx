@@ -5,7 +5,7 @@ import PostCard from "../post-card/PostCard";
 
 export default function AllPosts(){
     const [posts ] = useGetAllPosts();
-    console.log(posts)
+    
     return(
         <div>
             <h2>Browse Activities & Attractions in Illinois</h2>

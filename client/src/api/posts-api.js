@@ -17,7 +17,7 @@ export const getOne = async (postId) => {
 }
 
 export const getRecent = async () => {
-    const response = await get(`${BASE_URL}?sortBy=val%20desc%2C_createdOn&pageSize=1`)
+    const response = await get(`${BASE_URL}?sortBy=_createdOn%20desc&offset=0&pageSize=1`)
     return response;
     
 }

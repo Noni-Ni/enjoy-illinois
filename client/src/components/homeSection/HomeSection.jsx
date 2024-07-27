@@ -6,13 +6,13 @@ export default function HomeSection() {
     const [recent, setRecent] = useState({})
     useEffect(() => {
         async function getRecentPost (){
-            const result = await getRecent()
-            
+            const response = await getRecent()
+            const result = response[0]
             setRecent(result)
         }
         getRecentPost();
     }, [])
-    console.log(recent)
+    
     return (
         <div>
             <div>

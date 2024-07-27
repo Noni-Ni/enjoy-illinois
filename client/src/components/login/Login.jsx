@@ -18,7 +18,7 @@ export default function Login() {
                 await login(email, password);
                 navigate('/')
             } catch (err) {
-                console.log('hi')
+                
                 console.log(err.message)
                 
             }

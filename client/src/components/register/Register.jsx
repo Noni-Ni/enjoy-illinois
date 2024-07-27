@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Register.module.css'
 
 export default function Register() {
@@ -36,7 +37,7 @@ export default function Register() {
                         <input type="submit" value="Submit" />
                     </div>
                 </form>
-                <a href="/login">Already have account...</a>
+                <Link href="/login">Already have account...</Link>
             </div>
             
         </div>

@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom'
+
 export default function Header() {
     return (
-        <header>
-            <a href=""><h2>Enjoy Illinois</h2></a>
+        <header className="roboto-regular">
+            <Link to="/"><h2>Enjoy Illinois</h2></Link>
             <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Blogs</a></li>
-                    <li><a href="">Add Post</a></li>
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Register</a></li>
-                    <li><a href="">Logout</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/catalog">Blogs</Link></li>
+                    <li><Link to="/create">Add Post</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Register</Link></li>
+                    <li><Link to="/logout">Logout</Link></li>
                 </ul>
             </nav>
         </header>

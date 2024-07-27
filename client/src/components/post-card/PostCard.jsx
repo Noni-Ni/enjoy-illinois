@@ -1,12 +1,24 @@
-export default function PostCard() {
+import { Link } from "react-router-dom";
+
+export default function PostCard(
+    {
+        _id,
+        title,
+        address,
+        imageUrl,
+        text,
+        _ownerId,
+        _createdOn
+    }
+) {
     return (
         <article>
-            <img src="/images/susanne-preisinger-9GGMSGhsMk8-unsplash.jpg" alt="lake" />
+            <img src={imageUrl} alt="lake" />
             <section>
-                <h3>Card Title</h3>
-                <p>Lorem ipsum dolor sit inventore eaque fugit ex porro totam perspiciatis molestiae corporis. Odio!</p>
+                <h3>{title}</h3>
+                <p>{address}</p>
             </section>
-            <footer><a href="">Read more..</a></footer>
+            <footer><Link to={`/catalog/${_id}`}>Read more..</Link></footer>
         </article>
     )
 }

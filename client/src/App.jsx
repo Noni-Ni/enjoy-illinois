@@ -11,6 +11,7 @@ import Register from "./components/register/Register"
 import { AuthContext } from './contexts/authContext'
 import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
+import Logout from './components/logout/Logout'
 
 
 function App() {
@@ -20,14 +21,18 @@ function App() {
     localStorage.setItem('accessToken', state.accessToken)
     setAuthState(state);
   }
-
+  const logout = () => {
+    setAuthState(null)
+    localStorage.setItem('accessToken', '')
+  }
   const contextData = {
-    _id: authState._id,
-    username: authState.username,
-    email: authState.email,
-    accessToken: authState.accessToken,
-    isAuthenticated: !!authState.email,
-    changeAuthState
+    _id: authState?._id,
+    username: authState?.username,
+    email: authState?.email,
+    accessToken: authState?.accessToken,
+    isAuthenticated: !!authState?.email,
+    changeAuthState,
+    logout
   }
 
   return (
@@ -42,6 +47,7 @@ function App() {
           <Route path='/catalog/:postId' element={<Details/>} />
           <Route path='/create' element={<AddPost/>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/logout' element={<Logout/>} />
           <Route path='/register' element={<Register/>} />
         </Routes>
       </main>

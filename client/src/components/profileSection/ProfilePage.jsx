@@ -38,7 +38,7 @@ export default function ProfileSection() {
             <div className={styles.contentProfile}>
                 <div className={styles.yours}>
                     <h3>Your last post</h3>
-                    {recent._id !== undefined
+                    {yours?._id !== undefined
                         ? <PostCard {...yours} />
                         : <p className="no-articles">No posts yet</p>}
                 </div>

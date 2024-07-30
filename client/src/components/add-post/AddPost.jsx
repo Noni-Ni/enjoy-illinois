@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "../../hooks/useForm"
 
 import { useCreatePost } from '../../hooks/usePosts'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/authContext'
 
 const initialValues = {
     title: '',
@@ -13,11 +15,13 @@ const initialValues = {
 }
 
 export default function AddPost() {
+    const { username } = useContext(AuthContext);
     const navigate = useNavigate()
     const createPost = useCreatePost();
     const createHandler = async (values) => {
         try {
-            const { _id } = await createPost(values)
+            const newValues = {...values, author: username}
+            const { _id } = await createPost(newValues)
             
             navigate(`/catalog/${_id}`)
         } catch (error) {
@@ -29,7 +33,7 @@ export default function AddPost() {
     const { values, submitHandler, changeHandler } = useForm(initialValues, createHandler)
     return (
         <div className={ styles.addPost}>
-            <h2>Welcome user123</h2>
+            <h2>Welcome {username} !</h2>
             <p>Share your thoughts...</p>
             <div className={styles.container}>
                 <form onSubmit={submitHandler}>

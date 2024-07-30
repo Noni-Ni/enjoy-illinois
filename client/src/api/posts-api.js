@@ -27,3 +27,15 @@ export const create = async (postData) => {
     return response;
     
 }
+
+export const getYourLastPost = async(userId) => {
+
+    const params = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        
+
+    })
+    const result = await get(`http://localhost:3030/data/posts?where=_ownerId%3D%2235c62d76-8152-4626-8712-eeb96381bea8%22&sortBy=_createdOn%20desc&offset=0&pageSize=1`);
+    
+    return result;
+}

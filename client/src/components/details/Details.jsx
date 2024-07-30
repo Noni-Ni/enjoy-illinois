@@ -2,11 +2,14 @@
 import styles from './Details.module.css'
 import { Link, useParams } from 'react-router-dom'
 import { useGetOnePost } from '../../hooks/usePosts';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/authContext';
 
 export default function Details() {
     
     const {postId} = useParams();
     const [post, setPost ] = useGetOnePost(postId)
+    const { _id } = useContext(AuthContext);
 
     return (
         <div className={styles.divDetails}>
@@ -20,16 +23,17 @@ export default function Details() {
 
                     <p ><i className="far fa-compass"></i>{post.address}</p>
                     <p>{post.text}</p>
-                    <p className={styles.author}>{post._ownerId}</p>
+                    <p className={styles.author}>{post.author}</p>
                     
-
+                    { post._ownerId === _id &&
                     <div className={styles.action}>
                         <Link to={`/catalog/${postId}/edit`}>Edit</Link>
                         <Link to={`/catalog/${postId}/delete`}>Delete</Link>
-                    </div>
+                    </div>}
                 </section>
 
             </article>
         </div>
     )
 }
+

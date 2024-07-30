@@ -10,6 +10,7 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { AuthContext } from './contexts/authContext'
 import Home from './components/home/Home'
+import Footer from './components/footer/Footer'
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path='/register' element={<Register/>} />
         </Routes>
       </main>
+      <Footer/>
     </>
     </AuthContext.Provider>
   )

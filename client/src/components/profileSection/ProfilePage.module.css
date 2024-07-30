@@ -1,0 +1,71 @@
+.profilePage{
+    padding: 20px;
+    height: 100vh;
+}
+
+.heading h1{
+    font-style: italic;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.heading p{
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heading h2{
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.recent h3{
+    font-style: italic;
+    
+}
+.loved h3{
+    font-style: italic;
+    
+}
+
+.loved{
+    width: 29%;
+    padding: 20px;
+}
+.loved article{
+    width: 100%;
+}
+.recent article{
+    width: 100%;
+}
+.recent{
+    width: 29%;
+    padding: 20px;
+}
+
+.yours{
+    width: 29%;
+    padding: 20px;
+}
+
+.yours article{
+    width: 100%;
+}
+
+.yours h3{
+    font-style: italic;
+    
+}
+
+.allYours a{
+    text-decoration: none;
+    color: rgb(0, 153, 0);
+}
+.contentProfile{
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
+}

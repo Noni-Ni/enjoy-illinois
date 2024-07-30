@@ -14,6 +14,7 @@ export default function Header() {
                     <li><Link to="/catalog">Blogs</Link></li>
                     {isAuthenticated
                         ? <>
+                            <li><Link to="/profile">Your space</Link></li>
                             <li><Link to="/create">Add Post</Link></li>
                             <li><Link to="/logout">Logout</Link></li>
                         </>

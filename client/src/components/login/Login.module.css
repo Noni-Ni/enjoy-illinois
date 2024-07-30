@@ -42,7 +42,9 @@ input[type=submit]:hover {
   align-self: center;
   margin-bottom: 50px;
 }
-
+.loginPage{
+  height: 100vh;
+}
 .col25 {
   float: left;
   width: 20%;

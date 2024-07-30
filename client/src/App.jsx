@@ -5,10 +5,11 @@ import AddPost from "./components/add-post/AddPost"
 import AllPosts from "./components/all-posts/AllPosts"
 import Details from "./components/details/Details"
 import Header from "./components/header/Header"
-import HomeSection from "./components/homeSection/ProfilePage"
+import ProfileSection from "./components/profileSection/ProfilePage"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { AuthContext } from './contexts/authContext'
+import Home from './components/home/Home'
 
 
 function App() {
@@ -34,8 +35,9 @@ function App() {
       <Header className="roboto-regular" />
       <main className="roboto-regular">
         <Routes>
-          <Route path='/' element={<HomeSection/>} />
+          <Route path='/' element={<Home/>} />
           <Route path='/catalog' element={<AllPosts/>} />
+          <Route path='/profile' element={<ProfileSection/>} />
           <Route path='/catalog/:postId' element={<Details/>} />
           <Route path='/create' element={<AddPost/>} />
           <Route path='/login' element={<Login/>} />

@@ -9,7 +9,7 @@ export default function Details() {
     const [post, setPost ] = useGetOnePost(postId)
 
     return (
-        <div>
+        <div className={styles.divDetails}>
             <article className={styles.details}>
                 <img src={post.imageUrl} alt="lake" />
                 <section>

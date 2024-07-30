@@ -1,5 +1,7 @@
 
-
+.allPosts{
+    height: 100vh;
+}
 .allPosts h2{
     font-style: italic;
     margin-top: 50px;

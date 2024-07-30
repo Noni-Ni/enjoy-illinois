@@ -3,6 +3,7 @@
   }
   .addPost{
     padding: 30px;
+    height: 100vh;
   }
   .addPost h2{
     margin-top: 50px;

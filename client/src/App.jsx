@@ -5,7 +5,7 @@ import AddPost from "./components/add-post/AddPost"
 import AllPosts from "./components/all-posts/AllPosts"
 import Details from "./components/details/Details"
 import Header from "./components/header/Header"
-import HomeSection from "./components/homeSection/HomeSection"
+import HomeSection from "./components/homeSection/ProfilePage"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { AuthContext } from './contexts/authContext'
@@ -31,7 +31,7 @@ function App() {
   return (
     <AuthContext.Provider value={contextData}>
     <>
-      <Header />
+      <Header className="roboto-regular" />
       <main className="roboto-regular">
         <Routes>
           <Route path='/' element={<HomeSection/>} />

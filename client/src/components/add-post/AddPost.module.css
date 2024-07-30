@@ -1,6 +1,20 @@
 * {
     box-sizing: border-box;
   }
+  .addPost{
+    padding: 30px;
+  }
+  .addPost h2{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  .addPost p{
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 30px;
+  }
   
   input[type=text], select, textarea {
     width: 100%;

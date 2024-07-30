@@ -9,11 +9,16 @@
     margin-bottom: 20px;
     vertical-align: top;
     gap: 30px;
+    padding: 20px;
 
 }
 
 .details img {
     width: 50%;
+}
+
+.details p{
+    margin-top: 10px;
 }
 
 .title {
@@ -24,6 +29,7 @@
 }
 
 .author {
+    margin-top: 20px;
     font-weight: lighter;
     float: right;
     font-style: italic;
@@ -32,6 +38,7 @@
 .title a {
     color: rgb(0, 153, 0);
     font-style: italic;
+    text-decoration: none;
 }
 
 .action {
@@ -44,4 +51,5 @@
 .action a{
     color: rgb(0, 153, 0);
     font-style: italic;
+    text-decoration: none;
 }

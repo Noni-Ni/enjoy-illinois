@@ -28,7 +28,7 @@ export default function AddPost() {
     }
     const { values, submitHandler, changeHandler } = useForm(initialValues, createHandler)
     return (
-        <div>
+        <div className={ styles.addPost}>
             <h2>Welcome user123</h2>
             <p>Share your thoughts...</p>
             <div className={styles.container}>

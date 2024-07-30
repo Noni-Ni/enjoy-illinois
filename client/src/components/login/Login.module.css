@@ -40,6 +40,7 @@ input[type=submit]:hover {
   width: 600px;
 
   align-self: center;
+  margin-bottom: 50px;
 }
 
 .col25 {

@@ -1,6 +1,6 @@
 
 import styles from './Details.module.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useGetOnePost } from '../../hooks/usePosts';
 
 export default function Details() {
@@ -24,8 +24,8 @@ export default function Details() {
                     
 
                     <div className={styles.action}>
-                        <a href="">Edit</a>
-                        <a href="">Delete</a>
+                        <Link to={`/catalog/${postId}/edit`}>Edit</Link>
+                        <Link to={`/catalog/${postId}/delete`}>Delete</Link>
                     </div>
                 </section>
 

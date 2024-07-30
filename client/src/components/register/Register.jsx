@@ -8,7 +8,7 @@ import {  useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 
 
-const initialValues = { email: '', password: '', rePass: ''};
+const initialValues = { email: '', password: '', rePass: '', username: ''};
 
 export default function Register() {
     const [error, setError] = useState('')
@@ -16,7 +16,7 @@ export default function Register() {
     const navigate = useNavigate();
     const { values, changeHandler, submitHandler } = useForm(
         initialValues,
-        async ({ email, password, rePass }) => {
+        async ({ email, password, rePass, username }) => {
             
 
             if (password !== rePass) {
@@ -27,7 +27,7 @@ export default function Register() {
             }
             
             try {
-                await register(email, password);
+                await register(email, password, username);
                 navigate('/')
             } catch (err) {
                 setError(err.message)
@@ -56,6 +56,21 @@ export default function Register() {
                                 name="email" 
                                 placeholder="Enter you email..." 
                                 value={values.email}
+                                onChange={changeHandler}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.row}>
+                        <div className={styles.col25}>
+                            <label htmlFor="username">Username</label>
+                        </div>
+                        <div className={styles.col75}>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                placeholder="Enter you name..." 
+                                value={values.username}
                                 onChange={changeHandler}
                             />
                         </div>

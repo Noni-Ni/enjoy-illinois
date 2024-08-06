@@ -1,5 +1,6 @@
-import { useState } from 'react'
+
 import { Routes, Route } from 'react-router-dom'
+import { AuthContextProvider } from './contexts/authContext'
 
 import AddPost from "./components/add-post/AddPost"
 import AllPosts from "./components/all-posts/AllPosts"
@@ -8,35 +9,20 @@ import Header from "./components/header/Header"
 import ProfileSection from "./components/profileSection/ProfilePage"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
-import { AuthContext } from './contexts/authContext'
 import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
 import Logout from './components/logout/Logout'
 
 
 function App() {
-  const [authState, setAuthState] = useState({});
+  
 
-  const changeAuthState = (state) => {
-    localStorage.setItem('accessToken', state.accessToken)
-    setAuthState(state);
-  }
-  const logout = () => {
-    setAuthState(null)
-    localStorage.setItem('accessToken', '')
-  }
-  const contextData = {
-    _id: authState?._id,
-    username: authState?.username,
-    email: authState?.email,
-    accessToken: authState?.accessToken,
-    isAuthenticated: !!authState?.email,
-    changeAuthState,
-    logout
-  }
+ 
+
+ 
 
   return (
-    <AuthContext.Provider value={contextData}>
+    <AuthContextProvider >
     <>
       <Header className="roboto-regular" />
       <main className="roboto-regular">
@@ -53,7 +39,7 @@ function App() {
       </main>
       <Footer/>
     </>
-    </AuthContext.Provider>
+    </AuthContextProvider>
   )
 }
 

@@ -29,8 +29,8 @@ export default function EditPost(){
     }, true)
     return (
         <div className={ styles.addPost}>
-            <h2>Welcome {username} !</h2>
-            <p>Share your thoughts...</p>
+            <h2>Hello {username} !</h2>
+            <p>Tell us what is changed...</p>
             <div className={styles.container}>
                 <form onSubmit={submitHandler}>
                     <div className={styles.row}>

@@ -1340,6 +1340,14 @@
         }
     };
     var seedData = {
+        likes: {
+            "f9b6a0cb-77c9-4701-a7a4-70ea81591163": {
+                    "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                    "postId": "85d35de1-6f2c-47a5-923f-5c938c8ed3c1",
+                    "_createdOn": 1722968112676,
+                    "_id": "f9b6a0cb-77c9-4701-a7a4-70ea81591163"
+            }
+        },
         posts: {
             "85d35de1-6f2c-47a5-923f-5c938c8ed3c1": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1540,8 +1548,6 @@
                 _createdOn: 1614935268135,
                 _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
             }
-        },
-        likes: {
         },
         ideas: {
             "833e0e57-71dc-42c0-b387-0ce0caf5225e": {

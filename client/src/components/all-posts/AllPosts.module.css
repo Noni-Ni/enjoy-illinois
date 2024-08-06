@@ -1,6 +1,6 @@
 
 .allPosts{
-    height: 100vh;
+    min-height: 100vh;
 }
 .allPosts h2{
     font-style: italic;

@@ -13,6 +13,8 @@ import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
 import Logout from './components/logout/Logout'
 import EditPost from './components/editPost/EditPost'
+import PrivateGuard from './components/common/PrivateGuard'
+import GuestGuard from './components/common/GuestGueard'
 
 
 function App() {
@@ -30,13 +32,19 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/catalog' element={<AllPosts/>} />
-          <Route path='/profile' element={<ProfileSection/>} />
           <Route path='/catalog/:postId' element={<Details/>} />
-          <Route path='/catalog/:postId/edit' element={<EditPost/>} />
-          <Route path='/create' element={<AddPost/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/logout' element={<Logout/>} />
-          <Route path='/register' element={<Register/>} />
+          
+          <Route element={<PrivateGuard/>} >
+            <Route path='/profile' element={<ProfileSection/>} />
+            <Route path='/catalog/:postId/edit' element={<EditPost/>} />
+            <Route path='/create' element={<AddPost/>} />
+            <Route path='/logout' element={<Logout/>} />
+          </Route>
+          
+          <Route element={<GuestGuard/>} >
+            <Route path='/login' element={<Login/>} />
+            <Route path='/register' element={<Register/>} />
+          </Route>
         </Routes>
       </main>
       <Footer/>

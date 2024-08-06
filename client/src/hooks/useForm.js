@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export function useForm(initialValues, submitCallback){
+export function useForm(initialValues, submitCallback, reinitializeForm = false){
 
     const [values, setValues] = useState(initialValues);
 
-    //add support for checkbox
+    useEffect(()=>{
+        if(reinitializeForm){
+            setValues(initialValues)
+        }
+        
+    }, [initialValues, reinitializeForm])
+
+    
     const changeHandler = (e) => {
         
         setValues( state => ({

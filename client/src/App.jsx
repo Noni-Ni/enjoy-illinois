@@ -12,6 +12,7 @@ import Register from "./components/register/Register"
 import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
 import Logout from './components/logout/Logout'
+import EditPost from './components/editPost/EditPost'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/catalog' element={<AllPosts/>} />
           <Route path='/profile' element={<ProfileSection/>} />
           <Route path='/catalog/:postId' element={<Details/>} />
+          <Route path='/catalog/:postId/edit' element={<EditPost/>} />
           <Route path='/create' element={<AddPost/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/logout' element={<Logout/>} />

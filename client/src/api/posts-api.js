@@ -1,4 +1,4 @@
-import { del, get, post } from "./requester"
+import { del, get, post, put } from "./requester"
 
 const BASE_URL = 'http://localhost:3030/data/posts'
 
@@ -42,5 +42,11 @@ export const getYourLastPost = async(userId) => {
 
 export const remove = async (postId) => {
     await del(`${BASE_URL}/${postId}`);
+    
+}
+
+export const update = async (postId, postData) => {
+    const response = await put(`${BASE_URL}/${postId}`, postData)
+    return response;
     
 }

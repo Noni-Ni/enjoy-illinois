@@ -1,18 +1,20 @@
 
 import styles from './Details.module.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useGetOnePost } from '../../hooks/usePosts';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { useCreateLike, useGetAllLikesByPost } from '../../hooks/useLikes';
+import { remove } from '../../api/posts-api';
 
 export default function Details() {
     
     const {postId} = useParams();
-    const [post, setPost ] = useGetOnePost(postId)
+    const [post, setPost ] = useGetOnePost(postId);
     const { _id } = useContext(AuthContext);
     const [likes, setLikes ] = useGetAllLikesByPost(postId);
-    const createLike = useCreateLike()
+    const createLike = useCreateLike();
+    const navigate = useNavigate();
 
     const clickLikeHandler = async(e) => {
         e.preventDefault();
@@ -23,6 +25,16 @@ export default function Details() {
 
     const alreadyLiked = likes?.map(like => like._ownerId === _id).includes(true);
     
+    const deleteClickHandler = async( e ) => {
+        e.preventDefault();
+        try {
+            await remove(postId)
+            navigate('/catalog')
+        } catch (err) {
+            console.log(err.message);
+        }
+        
+    }
 
     return (
         <div className={styles.divDetails}>
@@ -48,7 +60,7 @@ export default function Details() {
                     { post._ownerId === _id &&
                     <div className={styles.action}>
                         <Link to={`/catalog/${postId}/edit`}>Edit</Link>
-                        <Link to={`/catalog/${postId}/delete`}>Delete</Link>
+                        <a onClick={deleteClickHandler} href='#' >Delete</a>
                     </div>}
                 </section>
 

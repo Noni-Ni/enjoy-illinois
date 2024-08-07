@@ -6,7 +6,7 @@ import styles from './Register.module.css'
 
 import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
-import validator from 'validator';
+
 
 
 const initialValues = { email: '', password: '', rePass: '', username: '' };
@@ -22,24 +22,24 @@ export default function Register() {
 
             if (password !== rePass) {
                 setError('Passwords dont match')
-                alert("Passwords dont match")
+                
 
                 return;
             }
 
             if(password.length < 6){
                 setError('Password should be at least 6 characters long')
-                alert("Password should be at least 6 characters long")
+                
                 return;
             }
             if(email.length < 9 || email === '' || !email.includes('@')){
                 setError('Please enter valid email')
-                alert('Please enter valid email')
+                
                 return;
             }
             if(username.length < 2 || username === ''){
                 setError('Username should be at least 2 characters long')
-                alert("Username should be at least 2 characters long")
+                
                 return;
             }
             

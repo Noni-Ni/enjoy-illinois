@@ -15,6 +15,7 @@ import Logout from './components/logout/Logout'
 import EditPost from './components/editPost/EditPost'
 import PrivateGuard from './components/common/PrivateGuard'
 import GuestGuard from './components/common/GuestGueard'
+import AllYourPosts from './components/allYourPosts/AllYourPosts'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route element={<PrivateGuard/>} >
             <Route path='/profile' element={<ProfileSection/>} />
             <Route path='/catalog/:postId/edit' element={<EditPost/>} />
+            <Route path='/catalog/yours' element={<AllYourPosts/>} />
             <Route path='/create' element={<AddPost/>} />
             <Route path='/logout' element={<Logout/>} />
           </Route>

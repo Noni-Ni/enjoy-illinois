@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styles from './EditPost.module.css'
 import { AuthContext } from '../../contexts/authContext';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -11,26 +11,27 @@ export default function EditPost(){
     const navigate = useNavigate();
     const {postId} = useParams();
     const [ post, setPost] = useGetOnePost(postId);
+    const [error, setError] = useState('')
     const {
         changeHandler,
         submitHandler,
         values
     } = useForm(post, async (values) => {
         if(values.title.length < 2 || values.title === ''){
-            alert("Title should be at least 2 characters long")
+            setError("Title should be at least 2 characters long")
             return;
         }
         if(values.address.length < 5 || values.address === ''){
-            alert("Addresss should be at least 5 characters long")
+            setError("Addresss should be at least 5 characters long")
             return;
         }
 
         if(values.imageUrl.length < 5 || values.imageUrl === '' || !values.imageUrl.includes('https://')){
-            alert("Enter valid Url")
+            setError("Enter valid Url")
             return;
         }
         if(values.text.length < 20 || values.text === '' ){
-            alert("Your story should be at least 20 characters long")
+            setError("Your story should be at least 20 characters long")
             return;
         }
         try {
@@ -43,12 +44,14 @@ export default function EditPost(){
 
         } catch (err) {
             console.log(err.message)
+            setError(err.message)
         }
     }, true)
     return (
         <div className={ styles.addPost}>
             <h2>Hello {username} !</h2>
             <p>Tell us what is changed...</p>
+            {error && <div><h2>{error}</h2></div>}
             <div className={styles.container}>
                 <form onSubmit={submitHandler}>
                     <div className={styles.row}>

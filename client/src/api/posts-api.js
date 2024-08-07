@@ -40,6 +40,18 @@ export const getYourLastPost = async(userId) => {
     return result;
 }
 
+export const getAllYourPosts = async(userId) => {
+
+    const params = new URLSearchParams({
+        where: `_ownerId=${userId}`,
+       
+    })
+    const result = await get(`http://localhost:3030/data/posts?where=_ownerId%3D%22${userId}%22`);
+    //const result = await get(`${BASE_URL}?${params.toString()}`);
+    
+    return result;
+}
+
 export const remove = async (postId) => {
     await del(`${BASE_URL}/${postId}`);
     

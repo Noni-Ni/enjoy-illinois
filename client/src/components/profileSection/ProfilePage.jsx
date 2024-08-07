@@ -62,7 +62,7 @@ export default function ProfileSection() {
                     </article>
                 </div>
             </div>
-            <div className={styles.allYours} ><Link to={`/catalog/authorId`}>All your posts here...</Link></div>
+            <div className={styles.allYours} ><Link to={`/catalog/yours`}>All your posts here...</Link></div>
         </div>
     )
 }

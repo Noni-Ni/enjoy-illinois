@@ -18,12 +18,14 @@ import GuestGuard from './components/common/GuestGueard'
 import AllYourPosts from './components/allYourPosts/AllYourPosts'
 
 
+
 function App() {
   
   return (
     <AuthContextProvider >
     <>
       <Header className="roboto-regular" />
+      
       <main className="roboto-regular">
         <Routes>
           <Route path='/' element={<Home/>} />

@@ -7,19 +7,18 @@ import { useForm } from "../../hooks/useForm";
 import { useState } from 'react';
 
 
-
-
 const initialValues = { email: '', password: '' };
 
 export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
-    const [error, setError] = useState("");
+    const [error, setError] = useState('');
+    
     const { values, changeHandler, submitHandler } = useForm(
         initialValues,
         async ({ email, password }) => {
             if(password.length < 5){
-
+                
                 setError("Password should be at least 6 characters long")
                 
                 return;
@@ -37,7 +36,7 @@ export default function Login() {
             } catch (err) {
                 setError(err.message)
                 console.log(err.message)
-
+                
             }
 
             
@@ -45,7 +44,8 @@ export default function Login() {
     );
     return (
         <div className={styles.loginPage}>
-            {error && <div><h2>{error}</h2></div>}
+            {error && <div><h3>{error}</h3></div>}
+           
             <div className={styles.loginContainer}>
                 <h2>Please login...</h2>
                 <form onSubmit={submitHandler} >

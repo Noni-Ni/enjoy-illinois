@@ -18,7 +18,7 @@ export default function Login() {
     const { values, changeHandler, submitHandler } = useForm(
         initialValues,
         async ({ email, password }) => {
-            if(password.length < 6){
+            if(password.length < 5){
 
                 setError("Password should be at least 6 characters long")
                 

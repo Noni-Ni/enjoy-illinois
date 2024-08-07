@@ -19,11 +19,6 @@ import GuestGuard from './components/common/GuestGueard'
 
 function App() {
   
-
- 
-
- 
-
   return (
     <AuthContextProvider >
     <>

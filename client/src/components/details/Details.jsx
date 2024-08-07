@@ -18,8 +18,13 @@ export default function Details() {
 
     const clickLikeHandler = async(e) => {
         e.preventDefault();
-        const like = await createLike(postId);
-        setLikes(oldLikes => [...oldLikes, like])
+        try {
+            const like = await createLike(postId);
+            setLikes(oldLikes => [...oldLikes, like]);
+        } catch (error) {
+            console.log(error.message);
+        }
+       
 
     }
 

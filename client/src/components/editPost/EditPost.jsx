@@ -16,7 +16,25 @@ export default function EditPost(){
         submitHandler,
         values
     } = useForm(post, async (values) => {
+        if(values.title.length < 2 || values.title === ''){
+            alert("Title should be at least 2 characters long")
+            return;
+        }
+        if(values.address.length < 5 || values.address === ''){
+            alert("Addresss should be at least 5 characters long")
+            return;
+        }
+
+        if(values.imageUrl.length < 5 || values.imageUrl === '' || !values.imageUrl.includes('https://')){
+            alert("Enter valid Url")
+            return;
+        }
+        if(values.text.length < 20 || values.text === '' ){
+            alert("Your story should be at least 20 characters long")
+            return;
+        }
         try {
+            
             const isConfimed = confirm('Are you sure you want to update this post ?');
             if (isConfimed) {
                 const updatedPost = await update(postId, values);

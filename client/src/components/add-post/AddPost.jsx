@@ -19,6 +19,22 @@ export default function AddPost() {
     const navigate = useNavigate()
     const createPost = useCreatePost();
     const createHandler = async (values) => {
+        if(values.title.length < 2 || values.title === ''){
+            alert("Title should be at least 2 characters long")
+            return;
+        }
+        if(values.address.length < 5 || values.address === ''){
+            alert("Addresss should be at least 5 characters long")
+            return;
+        }
+        if(values.imageUrl.length < 5 || values.imageUrl === '' || !values.imageUrl.includes('https://')){
+            alert("Enter valid Url")
+            return;
+        }
+        if(values.text.length < 20 || values.text === '' ){
+            alert("Your story should be at least 20 characters long")
+            return;
+        }
         try {
             const newValues = {...values, author: username}
             const { _id } = await createPost(newValues)

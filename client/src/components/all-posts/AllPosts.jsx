@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { useGetAllPosts } from "../../hooks/usePosts";
 
 import PostCard from "../post-card/PostCard";
@@ -6,7 +7,14 @@ import PostCard from "../post-card/PostCard";
 import styles from './AllPosts.module.css'
 
 export default function AllPosts(){
-    const [posts ] = useGetAllPosts();
+    const [error, setError] = useState('')
+    try {
+        const [posts ] = useGetAllPosts();
+    } catch (err) {
+        console.log(err.message)
+        setError(err.message)
+    }
+    
     
     return(
         <div className={styles.allPosts}>

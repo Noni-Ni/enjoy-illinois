@@ -9,7 +9,7 @@ export default function Home() {
                 <Link to={`/catalog`}><h2>Discover Illinois</h2></Link>
                 
             </div>
-            <img src="../../../public/images/toni-pomar-O2CDOAopMzA-unsplash.jpg" alt="" />
+            <img src="/images/toni-pomar-O2CDOAopMzA-unsplash.jpg" alt="" />
 
         </div>
     )

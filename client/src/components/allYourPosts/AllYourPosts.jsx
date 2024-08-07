@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/authContext";
 import {  useGetAllYourPosts } from "../../hooks/usePosts";
 import styles from './AllYourPosts.module.css'
@@ -9,8 +9,14 @@ import PostCard from "../post-card/PostCard";
 
 export default function AllYourPosts(){
     const {_id} = useContext(AuthContext);
+    const [error, setError] = useState('')
+    try {
+        const [posts ] = useGetAllYourPosts(_id);
+    } catch (err) {
+        console.log(err.message)
+        setError(err.message)
+    }
     
-    const [posts ] = useGetAllYourPosts(_id);
     
     return(
         <div className={styles.allPosts}>

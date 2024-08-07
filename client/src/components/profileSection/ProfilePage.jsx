@@ -12,34 +12,58 @@ import { useGetOnePost } from "../../hooks/usePosts";
 export default function ProfileSection() {
     const { _id , username} = useContext(AuthContext)
     const [recent, setRecent] = useState({})
-    useEffect(() => {
-        async function getRecentPost() {
-            const response = await getRecent()
-            const result = response[0]
-            setRecent(result)
-        }
-        getRecentPost();
-    }, [])
+    const [error, setError] = useState('')
+    try {
+        useEffect(() => {
+            async function getRecentPost() {
+                const response = await getRecent()
+                const result = response[0]
+                setRecent(result)
+            }
+            getRecentPost();
+        }, [])
+    } catch (error) {
+        console.log(error.message)
+        setError(error.message)
+    }
+    
     const [yours, setYours] = useState([])
-    useEffect(() => {
-        async function getYourLast() {
-            const response = await getYourLastPost(_id)
-            const result = response[0]
-            setYours(result)
-        }
-        getYourLast();
-    }, [])
+    try {
+        useEffect(() => {
+            async function getYourLast() {
+                const response = await getYourLastPost(_id)
+                const result = response[0]
+                setYours(result)
+            }
+            getYourLast();
+        }, [])
+    } catch (err) {
+        console.log(err.message)
+        setError(err.message)
+    }
+    
     const [liked, setLiked] = useState([])
-    useEffect(() => {
-        async function getLiked() {
-            const response = await getAllyourLikes(_id)
-            const result = response[0]
-            setLiked(result)
-        }
-        getLiked();
-    }, [])
+    try {
+        useEffect(() => {
+            async function getLiked() {
+                const response = await getAllyourLikes(_id)
+                const result = response[0]
+                setLiked(result)
+            }
+            getLiked();
+        }, [])
+    } catch (err) {
+        console.log(err.message)
+        setError(err.message)
+    }
+    try {
+        const [post] = useGetOnePost(liked?.postId);
+    } catch (err) {
+        console.log(err.message)
+        setError(err.message)
+    }
 
-    const [post] = useGetOnePost(liked?.postId);
+    
     
     return (
         <div className={styles.profilePage}>

@@ -50,7 +50,7 @@ export default function ProfileSection() {
             async function getLiked() {
                 const response = await getAllyourLikes(_id)
                 const result = response[0]
-                console.log(result)
+               
                 setLiked(result)
             }
             getLiked();

@@ -5,6 +5,8 @@ import styles from './ProfilePage.module.css'
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import { getAllyourLikes } from "../../api/likes-api";
+import { useGetOnePost } from "../../hooks/usePosts";
 
 
 export default function ProfileSection() {
@@ -27,6 +29,18 @@ export default function ProfileSection() {
         }
         getYourLast();
     }, [])
+    const [liked, setLiked] = useState([])
+    useEffect(() => {
+        async function getLiked() {
+            const response = await getAllyourLikes(_id)
+            const result = response[0]
+            setLiked(result)
+        }
+        getLiked();
+    }, [])
+
+    const [post] = useGetOnePost(liked?.postId);
+    
     return (
         <div className={styles.profilePage}>
             <div className={styles.heading}>
@@ -51,15 +65,10 @@ export default function ProfileSection() {
 
                 </div>
                 <div className={styles.loved}>
-                    <h3>Most loved one</h3>
-                    <article>
-                        <img src="/images/susanne-preisinger-9GGMSGhsMk8-unsplash.jpg" alt="lake" />
-                        <section>
-                            <h3>Card Title</h3>
-                            <p>Lorem ipsum dolor sit inventore eaque fugit ex porro totam perspiciatis molestiae corporis. Odio!</p>
-                        </section>
-                        <footer><a href="">Read more..</a></footer>
-                    </article>
+                    <h3>Your last loved one</h3>
+                    {post._id !== undefined 
+                    ? <PostCard {...post}/>
+                    : <p className="no-articles">No loved posts yet</p>}
                 </div>
             </div>
             <div className={styles.allYours} ><Link to={`/catalog/yours`}>All your posts here...</Link></div>

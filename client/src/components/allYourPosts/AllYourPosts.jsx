@@ -9,13 +9,10 @@ import PostCard from "../post-card/PostCard";
 
 export default function AllYourPosts(){
     const {_id} = useContext(AuthContext);
-    const [error, setError] = useState('')
-    try {
+    
+  
         const [posts ] = useGetAllYourPosts(_id);
-    } catch (err) {
-        console.log(err.message)
-        setError(err.message)
-    }
+    
     
     
     return(

@@ -53,13 +53,13 @@ export default function Details() {
             {error && <div><h2>{error}</h2></div>}
             <article className={styles.details}>
                 <img src={post.imageUrl} alt="lake" />
-                <section>
+                <section className={styles.sectionW} >
                     <div className={styles.title}>
                         <h2>{post.title}</h2>
                         {_id ?
-                            <>
+                            <div>
                                 {alreadyLiked ? <p>You already liked this post!</p> : <a onClick={clickLikeHandler} href="">Like me <i className="fas fa-heart"></i></a>}
-                            </> : ''}
+                            </div> : ''}
                     </div>
 
                     <p ><i className="far fa-compass"></i>{post.address}</p>

@@ -7,17 +7,16 @@ import PostCard from "../post-card/PostCard";
 import styles from './AllPosts.module.css'
 
 export default function AllPosts(){
-    const [error, setError] = useState('')
-    try {
-        const [posts ] = useGetAllPosts();
-    } catch (err) {
-        console.log(err.message)
-        setError(err.message)
-    }
+   
     
+    const [posts ] = useGetAllPosts();
+   
+ 
     
     return(
+        
         <div className={styles.allPosts}>
+            
             <h2>Browse Activities & Attractions in Illinois</h2>
             <p>Discover amusement parks, museums, parks & forests, outdoor activities, history, dining, unmissable events and so much more in The Middle of Everything!</p>
             <div className={styles.container}>
@@ -28,5 +27,6 @@ export default function AllPosts(){
 
             </div>
         </div>
+       
     )
 }

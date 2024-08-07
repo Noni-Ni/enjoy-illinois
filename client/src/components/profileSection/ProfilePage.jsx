@@ -23,11 +23,12 @@ export default function ProfileSection() {
             getRecentPost();
         }, [])
     } catch (error) {
+       
         console.log(error.message)
         setError(error.message)
     }
     
-    const [yours, setYours] = useState([])
+    const [yours, setYours] = useState({})
     try {
         useEffect(() => {
             async function getYourLast() {
@@ -38,30 +39,32 @@ export default function ProfileSection() {
             getYourLast();
         }, [])
     } catch (err) {
+        
         console.log(err.message)
         setError(err.message)
     }
     
-    const [liked, setLiked] = useState([])
+    const [liked, setLiked] = useState({})
     try {
         useEffect(() => {
             async function getLiked() {
                 const response = await getAllyourLikes(_id)
                 const result = response[0]
+                console.log(result)
                 setLiked(result)
             }
             getLiked();
         }, [])
     } catch (err) {
+       
         console.log(err.message)
         setError(err.message)
     }
-    try {
+   
         const [post] = useGetOnePost(liked?.postId);
-    } catch (err) {
-        console.log(err.message)
-        setError(err.message)
-    }
+    
+     
+   
 
     
     
@@ -83,14 +86,14 @@ export default function ProfileSection() {
                 <div className={styles.recent}>
                     <h3>Most recent post</h3>
 
-                    {recent._id !== undefined
+                    {recent?._id !== undefined
                         ? <PostCard {...recent} />
                         : <p className="no-articles">No posts yet</p>}
 
                 </div>
                 <div className={styles.loved}>
                     <h3>Your last loved one</h3>
-                    {post._id !== undefined 
+                    {post?._id !== undefined 
                     ? <PostCard {...post}/>
                     : <p className="no-articles">No loved posts yet</p>}
                 </div>

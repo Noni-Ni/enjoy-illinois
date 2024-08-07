@@ -12,6 +12,9 @@
     padding: 20px;
 
 }
+.sectionW{
+    width: 48%;
+}
 .divDetails{
     height: 100vh;
 }
@@ -27,7 +30,8 @@
     display: flex;
     vertical-align: middle;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
+    
 }
 
 .author {
